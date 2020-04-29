@@ -1,0 +1,8 @@
+[Cat]
+tail = 1
+face = 1
+feet = 4
+[Human]
+legs = 2
+arms = 2
+head = 1

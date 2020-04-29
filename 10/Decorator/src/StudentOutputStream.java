@@ -6,16 +6,16 @@ public class StudentOutputStream extends OutputStream {
 
     private DataOutputStream sout;
 
-    public StudentOutputStream(){
+    public StudentOutputStream(OutputStream sout){
         this.sout= new DataOutputStream(sout);
     }
 
     public void writeStudent(Student student) throws IOException {
         try{
             sout.writeUTF(student.getName());
-            sout.writeBoolean(student.isGender());
             sout.writeInt(student.getBirthYear());
             sout.writeShort(student.getGroup());
+            sout.writeInt(student.getAverageScore());
         }
         catch(IOException ex){
             throw ex;

@@ -1,19 +1,22 @@
 import java.io.Serializable;
 import java.util.Objects;
 
+
 public class Student implements Serializable {
 
-    private String name;
-    private int birthYear;
-    private int group;
-    private int averageScore;
+    public String name;
+    public int birthYear;
+    public int group;
+    public int averageScore;
 
-    Student( String name, int birthYear, int group, int averageScore){
+    public Student( String name, int averageScore, int birthYear, int group){
         this.name = name;
         this.birthYear = birthYear;
         this.group = group;
         this.averageScore=averageScore;
     }
+
+    public Student(){}
 
     public String getName() {
         return name;

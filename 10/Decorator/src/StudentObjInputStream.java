@@ -1,6 +1,7 @@
 import java.io.*;
 
 public class StudentObjInputStream extends InputStream {
+
     private ObjectInputStream in;
 
     public StudentObjInputStream(InputStream in) throws IOException {

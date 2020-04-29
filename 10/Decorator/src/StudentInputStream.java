@@ -5,20 +5,20 @@ import java.io.InputStream;
 
 public class StudentInputStream extends InputStream {
 
-    private StudentInputStream sin;
+    private DataInputStream sin;
 
     public StudentInputStream(InputStream in) {
-        this.sin = new StudentInputStream(in);
+        this.sin = new DataInputStream(in);
     }
 
     public Student readStudent() throws IOException {
         try {
             String name = sin.readUTF();
-            boolean gender = sin.readBoolean();
             short group = sin.readShort();
             int birthYear = sin.readInt();
+            int averageScore =sin.readInt();
 
-            return new Student(name, gender, birthYear, group);
+            return new Student(name, birthYear, group, averageScore);
         } catch (IOException ex) {
             throw ex;
         }
