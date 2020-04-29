@@ -4,8 +4,7 @@ import java.io.IOException;
 
 public class Main {
     public static void main(String[] args){
-
-        //Проверка JSON файла
+        
         Student student = new Student("Kate", 2000,198, 92);
         Student student1 = null;
         try(StudentJsonOutputStream out = new StudentJsonOutputStream(new FileOutputStream("src/Json"))){
@@ -24,7 +23,6 @@ public class Main {
         System.out.println(student1.toString());
 
 
-        //Проверка YAML файла
         student = new Student("Eva", 2022,198, 92);
         student1 = null;
         try(StudentYamlOutputStream out = new StudentYamlOutputStream(new FileOutputStream("src/Yaml"))){
