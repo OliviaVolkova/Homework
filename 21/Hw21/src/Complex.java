@@ -1,4 +1,9 @@
 public class Complex {
+    public static void main(String[] args) {
+        Complex c1 = new Complex(4,1);
+        Complex c2 = new Complex(2,5);
+        System.out.println(c1.divide(c2));
+    }
     private double imaginary;
     private double real;
     public double getImaginary(){

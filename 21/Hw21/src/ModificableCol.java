@@ -1,6 +1,17 @@
-import java.util.*;
+import java.util.AbstractCollection;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.Objects;
 
 public class ModificableCol<T>  extends AbstractCollection<T> implements Iterable<T>{
+    public static void main(String[] args) {
+        ModificableCol<Integer> col = new ModificableCol<>();
+        col.add(0);
+        col.add(1);
+        col.add(2);
+        col.add(5);
+        System.out.println(col.hashCode());
+    }
 
     protected int cursor;
     protected Object[] array;
@@ -43,7 +54,7 @@ public class ModificableCol<T>  extends AbstractCollection<T> implements Iterabl
         return cursor;
     }
 
-    @Override
+
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -52,7 +63,7 @@ public class ModificableCol<T>  extends AbstractCollection<T> implements Iterabl
                 Arrays.equals(array, that.array);
     }
 
-    @Override
+
     public int hashCode() {
         int result = Objects.hash(cursor);
         result = 31 * result + Arrays.hashCode(array);
@@ -81,19 +92,26 @@ public class ModificableCol<T>  extends AbstractCollection<T> implements Iterabl
                 throw new java.util.NoSuchElementException();
             }
         }
-        public boolean remove(Object e) {
+
+        public boolean remove(T e) {
             boolean fl=false;
             for(int i=0;i<cursor; i++){
                 if(array[i]==e){
                     for(int j=i;j<cursor;j++){
                         array[j]=array[j+1];
                     }
-                    fl=true;
-                    break;
+                    return true;
+
                 }
             }
             return fl;
         }
+
+        public void clear(){
+            array = new Object[0];
+            cursor = 0;
+        }
+
 
         public int size(){
             return a.length;
