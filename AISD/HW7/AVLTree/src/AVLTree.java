@@ -4,44 +4,10 @@ import java.util.List;
 import java.util.Objects;
 
 class AVLTree{
-
-
-    public class BinarTree {
         public Knot root;
-        BinarTree(){
+        AVLTree(){
 
         }
-        public void add(int value){
-            if(root == null){
-                root = new Knot(value);
-            }
-            else{
-                add(root, value);
-            }
-        }
-
-        public void add(Knot parent,int value){
-            if(value > parent.value){
-                if(parent.right == null){
-                    Knot knot = new Knot(parent, value);
-                    parent.right = knot;
-                }
-                else{
-                    add(parent.right,value);
-                }
-            }
-            else{
-                if(parent.left == null){
-                    Knot knot = new Knot(parent, value);
-                    parent.left = knot;
-                }
-                else{
-                    add(parent.left,value);
-                }
-            }
-        }
-
-
         public void bfs() {
             ArrayList a = new ArrayList();
             if(root!=null){
@@ -316,5 +282,4 @@ class AVLTree{
         return N.height;
     }
 
-}
 }
